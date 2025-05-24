@@ -1,0 +1,22 @@
+# Ignore Maven target directory
+/target
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# IntelliJ
+.idea/
+*.iml
+
+# OS generated
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# Application properties (nếu chứa thông tin nhạy cảm)
+application.properties
+application.yml
