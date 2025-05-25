@@ -2,9 +2,9 @@
 /target
 
 # Eclipse project files
-.classpath
-.project
-.settings/
+# .classpath
+#.project
+#.settings/
 
 # IntelliJ
 .idea/
@@ -18,5 +18,5 @@ Thumbs.db
 *.log
 
 # Application properties (nếu chứa thông tin nhạy cảm)
-application.properties
-application.yml
+#application.properties
+#application.yml

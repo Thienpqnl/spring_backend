@@ -1,5 +1,7 @@
 package com.example.spring_backend;
 
+import java.time.LocalDateTime;
+
 import org.springframework.web.bind.annotation.*;
 
 import jakarta.persistence.*;
@@ -12,23 +14,25 @@ public class Todo {
 	private String title;
 	private String description;
 	private boolean completed;
-
+	private String time;
     public Todo() {
     }
 
 	
-	public Todo(String title, String description, boolean completed) {
+	public Todo(String title, String description, boolean completed, String time) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.completed = completed;
+		this.time = time;
 	}
 
-	public Todo(Long id, String title, boolean completed) {
+	public Todo(Long id, String title, boolean completed, String time) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.completed = completed;
+		this.time = time;
 	}
 
 	public Long getId() {
@@ -62,6 +66,16 @@ public class Todo {
 
 	public void setCompleted(boolean completed) {
 		this.completed = completed;
+	}
+
+
+	public String getTime() {
+		return time;
+	}
+
+
+	public void setTime(String time) {
+		this.time = time;
 	}
 
 	// getter + setter + constructor
