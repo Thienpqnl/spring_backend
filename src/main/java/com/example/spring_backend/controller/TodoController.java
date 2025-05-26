@@ -1,7 +1,9 @@
-package com.example.spring_backend;
+package com.example.spring_backend.controller;
 
 import java.util.List;
 
+import com.example.spring_backend.repsitory.TodoRepository;
+import com.example.spring_backend.model.Todo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,9 +26,9 @@ public class TodoController {
         return repository.findById(id).orElse(null);
     }
 
-    @GetMapping("/user/{user_id}")
-    public List<Todo> getByUserId(@PathVariable Long user_id) {
-        return repository.getByUserId(user_id);
+    @GetMapping("/user/name/{username}")
+    public List<Todo> getByUsername(@PathVariable String username) {
+        return repository.getByUsername(username);
     }
 
     @PostMapping

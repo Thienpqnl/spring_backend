@@ -1,4 +1,4 @@
-package com.example.spring_backend;
+package com.example.spring_backend.controller;
 
 import org.springframework.web.bind.annotation.*;
 
