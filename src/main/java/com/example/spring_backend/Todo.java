@@ -1,9 +1,5 @@
 package com.example.spring_backend;
 
-import java.time.LocalDateTime;
-
-import org.springframework.web.bind.annotation.*;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +7,7 @@ public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	private Long user_id;
 	private String title;
 	private String description;
 	private boolean completed;
@@ -19,20 +16,22 @@ public class Todo {
     }
 
 	
-	public Todo(String title, String description, boolean completed, String time) {
+	public Todo(String title, String description, boolean completed, String time, Long user_id) {
 		super();
 		this.title = title;
 		this.description = description;
 		this.completed = completed;
 		this.time = time;
+		this.user_id = user_id;
 	}
 
-	public Todo(Long id, String title, boolean completed, String time) {
+	public Todo(Long id, String title, boolean completed, String time, Long user_id) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.completed = completed;
 		this.time = time;
+		this.user_id = user_id;
 	}
 
 	public Long getId() {
@@ -80,4 +79,8 @@ public class Todo {
 
 	// getter + setter + constructor
 
+
+	public Long getUser_id() { return user_id;}
+
+	public void setUser_id(Long userId) { this.user_id = userId;}
 }
