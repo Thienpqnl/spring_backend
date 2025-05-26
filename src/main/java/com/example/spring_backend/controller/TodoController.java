@@ -1,7 +1,9 @@
-package com.example.spring_backend;
+package com.example.spring_backend.controller;
 
 import java.util.List;
 
+import com.example.spring_backend.repsitory.TodoRepository;
+import com.example.spring_backend.model.Todo;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
