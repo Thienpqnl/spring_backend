@@ -29,6 +29,29 @@ public class UserService {
         return userRepository.save(user);
     }
 
+    public User loginUser(String username, String password) throws Exception {
+        User user = userRepository.findByUsername(username);
+        if (user == null) {
+            throw new RuntimeException("Invalid username or password");
+        }
+
+        String[] parts = user.getPassword().split(":");
+        if (parts.length != 2) {
+            throw new RuntimeException("Invalid password format in database");
+        }
+
+        byte[] salt = Base64.getDecoder().decode(parts[0]);
+        String storedHash = parts[1];
+
+        String hashedInputPassword = hashPassword(password, salt);
+
+        if (!hashedInputPassword.equals(storedHash)) {
+            throw new RuntimeException("Invalid username or password");
+        }
+
+        return user;
+    }
+
     private String hashPassword(String password, byte[] salt) throws Exception {
         int iterations = 100000;
         int keyLength = 256;
